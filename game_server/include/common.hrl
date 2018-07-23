@@ -1,0 +1,3 @@
+-include("player.hrl").
+-include("proto.hrl").
+-include("map.hrl").

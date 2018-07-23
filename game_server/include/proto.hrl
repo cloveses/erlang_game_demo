@@ -1,0 +1,4 @@
+-ifndef(PROTO_DEFIND).
+-define(PROTO_DEFIND, true).
+-define(PROTO_PLAYER_ACCOUNT, 10001).
+-endif.

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <title>Game Demo</title>
+</head>
+<body>
+  <div id = "loginDiv">
+      <input id="loginAccount" type="text"/>
+      <button id="loginBtn">Login</button>
+  </div>
+  <div id = "msgs"></div>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript">
+    var ws;
+    if (!window.WebSocket) {
+      alert("WebSocket not supported by this browser");
+    }else{
+      ws = new WebSocket("ws://127.0.0.1:16666/");
+      ws.onclose = function () {
+        console.log("socket close");
+      }
+      ws.onmessage = function (e) {
+        var p = document.createElement('pre');
+        p.appendChild(document.createTextNode(e.data));
+        $('#msgs').append(p);
+      }
+    }
+    $('#loginBtn').click(function(){
+      Account = $('#loginAccount').val();
+      if(Account != undefined){
+         ws.send(JSON.stringify({protocol: 10001, account: Account}));
+         // $("#loginDiv").hide();
+      }
+    });
+  </script>
+  </body>
+</html>

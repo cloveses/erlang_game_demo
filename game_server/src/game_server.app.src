@@ -1,0 +1,16 @@
+{application, game_server,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { game_server_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[{protocol, [{port, 16666}, {acceptornums, 10}, {max_client, 1000000}]}]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
